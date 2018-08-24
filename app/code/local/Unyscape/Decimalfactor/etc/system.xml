@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Unyscape
+ * @package    Unyscape_Decimalfactor
+ * @author     Prerna
+ * @purpose    Module system configuration
+ */
+ -->
+<config>
+    <tabs>
+        <decimalfactor translate="label" module="decimalfactor">
+            <label>Multiply Decimal Factor</label>
+            <sort_order>1</sort_order>
+        </decimalfactor>
+    </tabs>
+    <sections>
+        <decimalfactor_options translate="label" module="decimalfactor">
+            <label>Configuration Settings</label>
+            <tab>decimalfactor</tab>
+			<frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+ 
+            <groups>
+                <settings translate="label" module="decimalfactor">
+                    <label>Configuration Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+ 
+                    <fields>
+					
+						<mod_enabled translate="label">
+                            <label>Module Enable: </label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </mod_enabled>
+					
+                        <mod_input1 translate="label">
+                            <label>Decimal Factor Value: </label>
+                            <comment>Enter the decimal value here</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<validate>validate-number</validate>
+                        </mod_input1>
+
+						<mod_input2 translate="label">
+                            <label>Function Enable: </label>
+							<comment>Switch it Off to disable multiply with Grandtotal Amount</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </mod_input2>
+						
+                    </fields>
+                </settings>
+            </groups>
+        </decimalfactor_options>
+    </sections>
+</config>
