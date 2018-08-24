@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Unyscape
+ * @package    Unyscape_Decimalfactor
+ * @author     Prerna
+ * @purpose    Module configuration 
+ */
+ -->
+<config>
+
+	<modules>
+        <Unyscape_Decimalfactor>
+            <version>1.0</version>
+        </Unyscape_Decimalfactor>
+    </modules>
+
+    <global>
+		
+		<models>            
+            <decimalfactor>
+                <class>Unyscape_Decimalfactor_Model</class>
+				<resourceModel>decimalfactor_mysql4</resourceModel>
+            </decimalfactor>
+			
+			<decimalfactor_mysql4>
+				<class>Unyscape_Decimalfactor_Model_Mysql4</class>
+				<entities>
+					<decimalfactor>
+						<table>decimalfactor</table>
+					</decimalfactor>
+				</entities>
+			</decimalfactor_mysql4>		 
+        </models>
+		
+		<resources>
+			<decimalfactor_setup>
+				<setup>
+					<module>Unyscape_Decimalfactor</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</decimalfactor_setup>
+			<decimalfactor_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</decimalfactor_write>
+			<decimalfactor_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</decimalfactor_read>
+		</resources>
+	
+		<events>
+			<sales_order_invoice_pay>
+				<observers>
+					<unyscape_decimalfactor_Model_Observer> 
+						<type>singleton</type>
+						<class>Unyscape_Decimalfactor_Model_Observer</class>
+						<method>storeOrderValue</method>
+					</unyscape_decimalfactor_Model_Observer>
+				</observers>
+			</sales_order_invoice_pay>
+		</events>
+	
+		<helpers>
+            <decimalfactor>
+                <class>Unyscape_Decimalfactor_Helper</class>
+            </decimalfactor>
+        </helpers>
+
+        
+				
+    </global>
+	
+	<adminhtml>
+    <acl>
+        <resources>
+			<all>
+                <title>Allow Everything</title>
+			</all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <decimalfactor_options>
+                                        <title>Configuration Settings</title>
+                                    </decimalfactor_options>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</adminhtml>
+	
+	
+</config>
